@@ -1,0 +1,1 @@
+const messageRole=new URLSearchParams(location.search).get("role")||sessionStorage.getItem("energySchoolDemoRole")||"student";const destinations={student:"student.html",teacher:"teacher.html",admin:"admin.html"};const backLink=document.querySelector("#backToPanel");if(backLink)backLink.href=destinations[messageRole]||"index.html";
