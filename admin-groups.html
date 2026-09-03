@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Учебни групи | Energy School</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="dashboard-v2.css?v=3">
+  <link rel="stylesheet" href="reference-theme.css?v=portal-1"><link rel="stylesheet" href="admin-groups.css?v=1">
+</head>
+<body><div class="app"><aside><a class="logo" href="admin.html"><i>E</i><span>Energy <b>School</b></span></a><nav></nav><a class="logout" href="index.html">Изход</a></aside>
+<main class="workspace"><header><button class="hamburger">☰</button><input id="groupGlobalSearch" placeholder="Търсене на група..."><div class="user"></div></header>
+<section class="page"><div class="page-heading"><div><small class="orange">ОРГАНИЗАЦИЯ НА ОБУЧЕНИЕТО</small><h1>Учебни групи</h1><p>Профилиращи и сборни групи от ученици, без промяна на официалната им паралелка.</p></div><button class="primary compact" id="addGroup">+ Нова група</button></div>
+<div class="mini-stats"><article><b id="groupCount">—</b><span>Активни групи</span></article><article><b id="groupStudentCount">—</b><span>Участия на ученици</span></article><article><b id="groupTeacherCount">—</b><span>Преподаватели</span></article><article><b id="groupSubjectCount">—</b><span>Предмети</span></article></div>
+<section class="card groups-card"><div class="toolbar"><input id="groupSearch" placeholder="Име, предмет или учител..."><select id="groupStatus"><option value="active">Активни</option><option value="archived">Архивирани</option><option value="all">Всички</option></select></div><p id="groupMessage" class="api-state">Зареждане...</p><div id="groupsGrid" class="groups-grid"></div></section></section></main></div>
+
+<div class="modal-backdrop" id="groupModal" hidden><section class="modal"><button class="modal-close group-dismiss">×</button><small class="orange">УЧЕБНА ГРУПА</small><h2 id="groupModalTitle">Нова група</h2><form id="groupForm"><input id="groupId" type="hidden"><div class="form-grid"><label class="wide">Име на групата<input id="groupName" required maxlength="120" placeholder="Напр. 11 клас – Софтуерни науки"></label><label>Предмет<select id="groupSubject" required></select></label><label>Учител<select id="groupTeacher" required></select></label><label>Кабинет<input id="groupRoom" placeholder="207"></label><label class="edit-only" hidden>Статус<select id="groupEditStatus"><option value="active">Активна</option><option value="archived">Архивирана</option></select></label></div><p id="groupError" class="login-message error"></p><div class="modal-actions"><button type="button" class="secondary-button group-dismiss">Отказ</button><button class="primary compact">Запази групата</button></div></form></section></div>
+
+<div class="modal-backdrop" id="rosterModal" hidden><section class="modal roster-modal"><button class="modal-close roster-dismiss">×</button><small class="orange">СЪСТАВ НА ГРУПАТА</small><h2 id="rosterTitle">Ученици</h2><p id="rosterMeta"></p><div class="roster-add"><select id="availableStudent"></select><button class="primary compact" id="addStudentToGroup">Добави</button></div><input id="rosterSearch" class="roster-search" placeholder="Търсене на ученик..."><p id="rosterMessage" class="api-state"></p><div id="groupStudents" class="group-students"></div></section></div>
+
+<script src="app.js?v=groups-13"></script><script src="admin-groups.js?v=groups-13"></script><script src="professional-shell.js?v=groups-13"></script>
+</body></html>
