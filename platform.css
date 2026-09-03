@@ -1,1 +1,20 @@
-.platform-body{margin:0;background:#f4f6f9;color:#142337;font-family:Arial,sans-serif}.platform-shell>header{height:72px;padding:0 5vw;background:#fff;border-bottom:1px solid #dde3ea;display:flex;align-items:center;gap:28px}.platform-shell>header .logo{margin-right:auto}.platform-auth{min-height:calc(100vh - 73px);display:grid;place-items:center;padding:25px}.platform-auth>article{width:min(480px,100%);background:#fff;padding:34px;border-radius:14px;box-shadow:0 18px 55px #20354d1b}.platform-auth form,.platform-auth label{display:grid;gap:7px}.platform-auth form{gap:14px}.platform-auth input{padding:13px;border:1px solid #d6dee7;border-radius:7px}.platform-auth details{margin-top:24px;border-top:1px solid #eee;padding-top:18px}.platform-auth details form{margin-top:18px}.platform-heading{display:flex;justify-content:space-between;align-items:center;padding:38px 5vw 20px}.platform-schools{padding:0 5vw 50px;display:grid;gap:14px}.platform-school-card{background:#fff;border:1px solid #e0e6ec;border-left:5px solid #f97316;border-radius:9px;padding:20px;display:grid;grid-template-columns:1fr auto;gap:14px}.platform-school-card h2{margin:0 0 7px}.platform-school-card p{margin:4px 0;color:#748196}.platform-school-card button{align-self:center}.platform-body .modal-backdrop{position:fixed;inset:0;background:#15243788;display:grid;place-items:center}.platform-body .modal-backdrop[hidden]{display:none}.platform-body .modal{width:min(620px,92vw);background:#fff;padding:28px;border-radius:12px;position:relative}
+.platform-body { margin: 0; background: #f4f6f9; color: #142337; font-family: Arial, sans-serif; }
+.platform-body [hidden] { display: none !important; }
+.platform-shell > header { height: 72px; padding: 0 5vw; background: #fff; border-bottom: 1px solid #dde3ea; display: flex; align-items: center; gap: 28px; }
+.platform-shell > header .logo { margin-right: auto; }
+.platform-auth { min-height: calc(100vh - 73px); display: grid; place-items: center; padding: 25px; }
+.platform-auth > article { width: min(480px, 100%); background: #fff; padding: 34px; border-radius: 14px; box-shadow: 0 18px 55px #20354d1b; }
+.platform-auth form, .platform-auth label { display: grid; gap: 7px; }
+.platform-auth form { gap: 14px; }
+.platform-auth input { padding: 13px; border: 1px solid #d6dee7; border-radius: 7px; }
+.platform-auth details { margin-top: 24px; border-top: 1px solid #eee; padding-top: 18px; }
+.platform-auth details form { margin-top: 18px; }
+.platform-heading { display: flex; justify-content: space-between; align-items: center; padding: 38px 5vw 20px; }
+.platform-schools { padding: 0 5vw 50px; display: grid; gap: 14px; }
+.platform-school-card { background: #fff; border: 1px solid #e0e6ec; border-left: 5px solid #f97316; border-radius: 9px; padding: 20px; display: grid; grid-template-columns: 1fr auto; gap: 14px; }
+.platform-school-card h2 { margin: 0 0 7px; }
+.platform-school-card p { margin: 4px 0; color: #748196; }
+.platform-school-card button { align-self: center; }
+.platform-body .modal-backdrop { position: fixed; inset: 0; background: #15243788; display: grid; place-items: center; }
+.platform-body .modal-backdrop[hidden] { display: none; }
+.platform-body .modal { width: min(620px, 92vw); background: #fff; padding: 28px; border-radius: 12px; position: relative; }
