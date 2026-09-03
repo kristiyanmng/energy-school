@@ -1,6 +1,92 @@
-<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Начало | Energy School</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="notifications.css?v=notifications-1"><link rel="stylesheet" href="reference-theme.css?v=portal-1"><link rel="stylesheet" href="student-dashboard-v3.css?v=1"></head><body data-dashboard-role="student"><div class="app"><aside><a class="logo" href="student.html"><i>E</i><span>Energy <b>School</b></span></a><nav></nav><a class="logout" href="index.html">Изход</a></aside><main class="workspace"><header><button class="hamburger">☰</button><input placeholder="Търсене..."><div class="user"></div></header><section class="page student-home-classic">
-<div class="student-home-banner">◆ <span id="homeStudentName">Ученик</span> <b id="homeStudentClass">Клас</b></div>
-<div class="student-metric-grid"><a href="student-diary.html" class="student-metric metric-average"><i>↗</i><strong id="homeAverage">—</strong><span>Успех</span></a><a href="student-diary.html" class="student-metric metric-grades"><i>✎</i><strong id="homeGrades">0</strong><span>Оценки</span></a><a href="student-diary.html?tab=attendance" class="student-metric metric-absence"><i>!</i><strong id="homeAbsences">0</strong><span>Отсъствия</span></a><a href="student-calendar.html" class="student-metric metric-tests"><i>◉</i><strong id="homeTests">0</strong><span>Контролни</span></a><a href="messages.html?role=student" class="student-metric metric-messages"><i>✉</i><strong id="homeMessages">0</strong><span>Съобщения</span></a><a href="student-schedule.html" class="student-metric metric-lessons"><i>▦</i><strong id="homeLessons">0</strong><span>Часове днес</span></a></div>
-<div class="student-home-columns"><section class="classic-panel"><h2>↗ Класация</h2><div class="ranking-grid"><article><strong id="homeClassRank">—</strong><span>Място в паралелката</span></article><article><strong id="homeSchoolRank">—</strong><span>Място в училище</span></article><article><strong id="homeUnexcused">0</strong><span>Неизвинени отсъствия</span></article></div><p class="ranking-note">*Класацията се изчислява от средния успех на учениците с въведени оценки.</p></section><section class="classic-panel"><h2>▤ Най-висок успех</h2><div id="homeBestSubjects" class="best-subjects"></div></section></div>
-<a class="home-wide-action" href="student-diary.html">↗ Виж целия дневник</a><a class="home-wide-action secondary" href="student-calendar.html">▣ Виж предстоящите контролни</a>
-</section></main></div><script src="app.js?v=topics-1"></script><script src="student-dashboard-v3.js?v=1"></script><script src="professional-shell.js?v=shell-2"></script><script src="notification-center.js?v=notifications-1"></script></body></html>
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Начало | Energy School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="notifications.css?v=notifications-1">
+  <link rel="stylesheet" href="reference-theme.css?v=portal-1">
+  <link rel="stylesheet" href="student-dashboard-v3.css?v=orange-portal-12">
+</head>
+<body data-dashboard-role="student">
+  <div class="app">
+    <aside>
+      <a class="logo" href="student.html"><i>E</i><span>Energy <b>School</b></span></a>
+      <nav></nav>
+      <a class="logout" href="index.html">Изход</a>
+    </aside>
+    <main class="workspace">
+      <header>
+        <button class="hamburger">☰</button>
+        <div class="student-school-title"><span>🏫</span><b id="homeSchoolName">Energy School</b></div>
+        <div class="user"></div>
+      </header>
+
+      <section class="page student-home-classic">
+        <div class="student-profile-strip">
+          <div><span>🎓</span><strong id="homeStudentName">Ученик</strong><b id="homeStudentClass">Клас</b></div>
+          <span id="homeAcademicYear" class="academic-year-badge">Учебна година</span>
+        </div>
+
+        <nav class="student-diary-shortcuts" aria-label="Бързи справки">
+          <a href="student-diary.html">✎ Оценки <b id="shortcutGrades">0</b></a>
+          <a href="student-diary.html?tab=attendance">● Отсъствия <b id="shortcutAbsences">0</b></a>
+          <a href="student-calendar.html">◫ Контролни <b id="shortcutTests">0</b></a>
+          <a href="student-homework.html">▤ Домашни</a>
+          <a href="student-schedule.html">▦ Разписание</a>
+          <a href="messages.html?role=student">✉ Съобщения <b id="shortcutMessages">0</b></a>
+        </nav>
+
+        <div class="student-metric-grid">
+          <a href="student-diary.html" class="student-metric metric-average"><i>↗</i><strong id="homeAverage">—</strong><span>Среден успех</span></a>
+          <a href="student-diary.html" class="student-metric metric-grades"><i>✎</i><strong id="homeGrades">0</strong><span>Оценки</span></a>
+          <a href="student-diary.html?tab=attendance" class="student-metric metric-absence"><i>!</i><strong id="homeAbsences">0</strong><span>Отсъствия</span></a>
+          <a href="student-diary.html?tab=attendance" class="student-metric metric-unexcused"><i>×</i><strong id="homeUnexcusedMetric">0</strong><span>Неизвинени</span></a>
+          <a href="student-calendar.html" class="student-metric metric-tests"><i>◉</i><strong id="homeTests">0</strong><span>Предстоящи</span></a>
+          <a href="student-schedule.html" class="student-metric metric-lessons"><i>▦</i><strong id="homeLessons">0</strong><span>Часове днес</span></a>
+          <span id="homeMessages" hidden>0</span>
+        </div>
+
+        <div class="student-home-columns">
+          <section class="classic-panel ranking-panel">
+            <h2><span>↗</span> Класация</h2>
+            <div class="ranking-grid">
+              <article><strong id="homeClassRank">—</strong><span>Място в паралелката</span></article>
+              <article><strong id="homeSchoolRank">—</strong><span>Място в училище</span></article>
+              <article><strong id="homeUnexcused">0</strong><span>Неизвинени отсъствия</span></article>
+            </div>
+            <p class="ranking-note">Класацията се изчислява според средния успех на учениците с въведени оценки.</p>
+          </section>
+
+          <section class="classic-panel subjects-panel">
+            <h2><span>▤</span> Успех по предмети</h2>
+            <div id="homeBestSubjects" class="best-subjects"></div>
+          </section>
+        </div>
+
+        <div class="student-home-lower">
+          <section class="classic-panel today-panel">
+            <h2><span>▦</span> Часове днес</h2>
+            <div id="homeTodayLessons" class="today-lessons"></div>
+          </section>
+          <section class="classic-panel activity-panel">
+            <h2><span>✎</span> Последни оценки</h2>
+            <div id="homeLatestGrades" class="latest-grades"></div>
+          </section>
+          <section class="classic-panel upcoming-panel">
+            <h2><span>◫</span> Предстоящи изпитвания</h2>
+            <div id="homeUpcomingAssessments" class="upcoming-assessments"></div>
+          </section>
+        </div>
+
+        <a class="home-wide-action" href="student-diary.html">Отвори целия електронен дневник →</a>
+      </section>
+    </main>
+  </div>
+  <script src="app.js?v=roles-11"></script>
+  <script src="student-dashboard-v3.js?v=orange-portal-12"></script>
+  <script src="professional-shell.js?v=shell-2"></script>
+  <script src="notification-center.js?v=notifications-1"></script>
+</body>
+</html>
