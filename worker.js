@@ -788,12 +788,13 @@ async function saveJournal(request, env, cors) {
 
 async function studentDiary(request, env, cors) {
   const auth=await requireRole(request,env,"student");if(auth.error)return json({error:auth.error},auth.status,cors);
-  await ensureFinalGradeTables(env);const [grades,attendance,finalGrades]=await Promise.all([
+  await ensureFinalGradeTables(env);const [grades,attendance,finalGrades,profile]=await Promise.all([
     env.DB.prepare(`SELECT g.id,g.value,g.grade_type,g.note,g.graded_on,s.id AS subject_id,s.name AS subject_name,s.color,u.first_name||' '||u.last_name AS teacher_name FROM grades g JOIN subjects s ON s.id=g.subject_id JOIN users u ON u.id=g.teacher_id WHERE g.student_id=? ORDER BY g.graded_on DESC,g.id DESC`).bind(auth.user.id).all(),
     env.DB.prepare(`SELECT a.id,a.status,a.excused,a.note,j.lesson_date,j.period_number,s.name AS subject_name FROM attendance a JOIN journal_lessons j ON j.id=a.journal_lesson_id JOIN subjects s ON s.id=j.subject_id WHERE a.student_id=? AND a.status!='present' ORDER BY j.lesson_date DESC,j.period_number`).bind(auth.user.id).all()
-    ,env.DB.prepare(`SELECT fg.value,fg.term,fg.subject_id,s.name AS subject_name FROM final_grades fg JOIN subjects s ON s.id=fg.subject_id JOIN academic_years ay ON ay.id=fg.academic_year_id WHERE fg.student_id=? AND ay.status='active' ORDER BY fg.term,s.name`).bind(auth.user.id).all()
+    ,env.DB.prepare(`SELECT fg.value,fg.term,fg.subject_id,s.name AS subject_name FROM final_grades fg JOIN subjects s ON s.id=fg.subject_id JOIN academic_years ay ON ay.id=fg.academic_year_id WHERE fg.student_id=? AND ay.status='active' ORDER BY fg.term,s.name`).bind(auth.user.id).all(),
+    env.DB.prepare(`SELECT u.first_name||' '||u.last_name AS student_name,sc.name AS school_name,c.grade||c.letter AS class_name,ay.name AS academic_year,ay.first_term_ends_on,ay.second_term_starts_on,ht.first_name||' '||ht.last_name AS homeroom_teacher FROM users u JOIN schools sc ON sc.id=u.school_id LEFT JOIN class_students cs ON cs.student_id=u.id AND cs.left_at IS NULL LEFT JOIN classes c ON c.id=cs.class_id AND c.status='active' LEFT JOIN academic_years ay ON ay.id=c.academic_year_id AND ay.status='active' LEFT JOIN users ht ON ht.id=c.homeroom_teacher_id WHERE u.id=? LIMIT 1`).bind(auth.user.id).first()
   ]);
-  return json({grades:grades.results,attendance:attendance.results,finalGrades:finalGrades.results},200,cors);
+  return json({grades:grades.results,attendance:attendance.results,finalGrades:finalGrades.results,profile},200,cors);
 }
 
 async function attendanceManagerAuth(request, env) {
